@@ -112,7 +112,7 @@ function handleEvent(e) {
     //
     var uimeStatus = checkUIME(targetNode.className);
     if (uimeStatus == -1) return;
-    if (tagName != "TEXTAREA" && !(tagName == "INPUT" && (src.getAttribute("type") == "text" || src.type == 'text'))) return;
+    if (tagName != "TEXTAREA" && !(tagName == "INPUT" && (targetNode.getAttribute("type") == "text" || targetNode.type == 'text'))) return;
     // 
     if (!targetNode.isUyghurRegistered) {
         changeDirection(targetNode, true);
