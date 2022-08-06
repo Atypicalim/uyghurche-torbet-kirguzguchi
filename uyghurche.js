@@ -12,6 +12,7 @@ let KEY_DOWN = "keydown";
 let KEY_PRESS = "keypress";
 let KEY_UP = "keyup";
 
+
 var Input = {
     34: 34,
     47: 1574,
@@ -97,6 +98,7 @@ function checkUIME(className) {
 }
 
 function changeDirection(target, isToRight) {
+    console.log(target.classList);
     target.style.direction = isToRight ? "rtl" : "ltr";
     target.style.textAlign = isToRight ? "right" : "left";
 }
@@ -142,8 +144,14 @@ function handleEvent(e) {
     }
 }
 
-window.addEventListener("load", function () {
+function registerUyghur() {
     document.addEventListener(KEY_DOWN, handleEvent, true);
     document.addEventListener(KEY_PRESS, handleEvent, true);
     document.addEventListener(KEY_UP, handleEvent, true);
-}, false);
+}
+
+if (document.readyState == "complete") {
+    registerUyghur();
+} else {
+    window.addEventListener("load", registerUyghur, false);
+}
